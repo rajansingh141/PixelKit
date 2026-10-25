@@ -1,0 +1,242 @@
+/* =========================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================= */
+
+/* We define our colors here so they are easy to change later */
+:root {
+    --primary-purple: #6366f1; /* A modern indigo/purple */
+    --primary-blue: #3b82f6;   /* A bright, friendly blue */
+    --text-dark: #1f2937;      /* Dark gray for main text */
+    --text-light: #6b7280;     /* Lighter gray for subtitles */
+    --bg-light: #f9fafb;       /* Very light gray for footer */
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Reset default browser margins and set a nice font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* A reusable container to keep content centered and not too wide */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+
+.site-header {
+    background-color: var(--white);
+    border-bottom: 1px solid #e5e7eb;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    /* Creates a blue-to-purple gradient text effect */
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--text-light);
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: var(--primary-purple);
+}
+
+/* =========================================
+   3. HERO SECTION & SEARCH BAR
+   ========================================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#tool-search {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 50px; /* Makes it pill-shaped */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#tool-search:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* =========================================
+   4. TOOLS SECTION & CARDS
+   ========================================= */
+
+.tools-section {
+    padding: 80px 20px;
+}
+
+.tools-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* CSS Grid automatically adjusts columns based on screen size */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.tool-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px); /* Lifts the card up slightly */
+    box-shadow: var(--shadow);
+    border-color: var(--primary-purple);
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.tool-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* =========================================
+   5. FOOTER
+   ========================================= */
+
+.site-footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid #e5e7eb;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-purple);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* =========================================
+   6. MOBILE RESPONSIVENESS
+   ========================================= */
+
+/* Adjustments for screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .tools-section {
+        padding: 50px 20px;
+    }
+}

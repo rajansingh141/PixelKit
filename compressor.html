@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor - PixelKit</title>
+    <link rel="stylesheet" href="compressor.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Compressor Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Image Compressor</h1>
+            <p class="tool-description">Reduce your image file size right in your browser. Your images never leave your computer.</p>
+
+            <!-- UPLOAD AREA: Where users select their image -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select an image</p>
+                    <p class="upload-hint">Supports JPG, PNG, and WebP</p>
+                </div>
+            </div>
+
+            <!-- EDITOR AREA: Hidden until an image is loaded -->
+            <div class="editor-area" id="editor-area" style="display: none;">
+                
+                <!-- LEFT SIDE: Image Preview -->
+                <div class="preview-section">
+                    <h2>Preview</h2>
+                    <div class="preview-container">
+                        <img id="preview-image" alt="Image preview">
+                    </div>
+                    <div class="file-info">
+                        <div>Original size: <strong id="original-size">0 KB</strong></div>
+                        <div id="original-dimensions"></div>
+                        <div id="format-note" class="format-note"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Controls -->
+                <div class="controls-section">
+                    <h2>Compression Settings</h2>
+                    
+                    <div class="control-group">
+                        <label for="quality-slider">
+                            Quality: <span id="quality-value">80</span>%
+                        </label>
+                        <input type="range" id="quality-slider" min="10" max="100" value="80">
+                        <p class="control-hint" id="format-hint">Works best with JPG and WebP images.</p>
+                    </div>
+
+                    <button id="compress-btn" class="btn-primary">Compress Image</button>
+                </div>
+
+            </div>
+
+            <!-- RESULT AREA: Hidden until compression is complete -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <h2>Result</h2>
+                <div class="comparison-grid">
+                    
+                    <!-- Original Image -->
+                    <div class="comparison-item">
+                        <h3>Original</h3>
+                        <div class="preview-container">
+                            <img id="result-original-image" alt="Original image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-original-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-original-size">0 KB</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Compressed Image -->
+                    <div class="comparison-item">
+                        <h3>Compressed</h3>
+                        <div class="preview-container">
+                            <img id="result-compressed-image" alt="Compressed image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-compressed-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-compressed-size">0 KB</strong></div>
+                            <div>Reduction: <strong id="result-reduction">0%</strong></div>
+                            <div id="result-warning" class="result-warning" style="display: none;"></div>
+                        </div>
+                        <a id="download-btn" class="btn-success" style="display: none;" download="compressed-image.jpg">
+                            ⬇ Download Compressed Image
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="compressor.js"></script>
+</body>
+</html>

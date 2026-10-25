@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer - PixelKit</title>
+    <link rel="stylesheet" href="resizer.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Resizer Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Image Resizer</h1>
+            <p class="tool-description">Resize your images to any dimension right in your browser. Your images never leave your computer.</p>
+
+            <!-- UPLOAD AREA: Where users select their image -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select an image</p>
+                    <p class="upload-hint">Supports JPG, PNG, and WebP</p>
+                </div>
+            </div>
+
+            <!-- EDITOR AREA: Hidden until an image is loaded -->
+            <div class="editor-area" id="editor-area" style="display: none;">
+                
+                <!-- LEFT SIDE: Image Preview -->
+                <div class="preview-section">
+                    <h2>Preview</h2>
+                    <div class="preview-container">
+                        <img id="preview-image" alt="Image preview">
+                    </div>
+                    <div class="file-info">
+                        <div>Original size: <strong id="original-dimensions">0 × 0 px</strong></div>
+                        <div id="original-file-size"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Controls -->
+                <div class="controls-section">
+                    <h2>Resize Settings</h2>
+                    
+                    <div class="dimension-inputs">
+                        <!-- Width Input -->
+                        <div class="input-group">
+                            <label for="width-input">Width (px)</label>
+                            <input type="number" id="width-input" min="1" max="10000" value="800">
+                        </div>
+
+                        <!-- Aspect Ratio Lock Button -->
+                        <button id="lock-btn" class="lock-btn locked" title="Maintain aspect ratio">
+                            🔒
+                        </button>
+
+                        <!-- Height Input -->
+                        <div class="input-group">
+                            <label for="height-input">Height (px)</label>
+                            <input type="number" id="height-input" min="1" max="10000" value="600">
+                        </div>
+                    </div>
+
+                    <!-- Warning Messages -->
+                    <div id="warning-message" class="warning-message" style="display: none;"></div>
+
+                    <button id="resize-btn" class="btn-primary">Resize Image</button>
+                </div>
+
+            </div>
+
+            <!-- RESULT AREA: Hidden until resize is complete -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <h2>Result</h2>
+                <div class="comparison-grid">
+                    
+                    <!-- Original Image -->
+                    <div class="comparison-item">
+                        <h3>Original</h3>
+                        <div class="preview-container">
+                            <img id="result-original-image" alt="Original image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-original-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-original-size">0 KB</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Resized Image -->
+                    <div class="comparison-item">
+                        <h3>Resized</h3>
+                        <div class="preview-container">
+                            <img id="result-resized-image" alt="Resized image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-resized-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-resized-size">0 KB</strong></div>
+                        </div>
+                        <a id="download-btn" class="btn-success" style="display: none;" download="resized-image.jpg">
+                            ⬇ Download Resized Image
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="resizer.js"></script>
+</body>
+</html>

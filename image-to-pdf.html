@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF - PixelKit</title>
+    <link rel="stylesheet" href="image-to-pdf.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Image to PDF Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Image to PDF</h1>
+            <p class="tool-description">Combine multiple images into a single PDF file right in your browser. Your images never leave your computer.</p>
+
+            <!-- UPLOAD AREA: Where users select images -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select images</p>
+                    <p class="upload-hint">You can select multiple images at once (JPG, PNG, WebP)</p>
+                </div>
+            </div>
+
+            <!-- IMAGE LIST: Shows uploaded images -->
+            <div class="image-list-section" id="image-list-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Your Images (<span id="image-count">0</span>)</h2>
+                    <button id="add-more-btn" class="btn-secondary">+ Add More Images</button>
+                </div>
+                
+                <div class="image-list" id="image-list">
+                    <!-- Images will be dynamically added here -->
+                </div>
+
+                <div class="empty-message" id="empty-message" style="display: none;">
+                    <p>No images added yet. Click "Add More Images" or use the upload area above.</p>
+                </div>
+            </div>
+
+            <!-- PDF SETTINGS: Configuration options -->
+            <div class="settings-section" id="settings-section" style="display: none;">
+                <h2>PDF Settings</h2>
+                
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label for="page-size">Page Size:</label>
+                        <select id="page-size">
+                            <option value="a4" selected>A4 (210 × 297 mm)</option>
+                            <option value="letter">Letter (8.5 × 11 in)</option>
+                            <option value="legal">Legal (8.5 × 14 in)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="orientation">Orientation:</label>
+                        <select id="orientation">
+                            <option value="portrait" selected>Portrait</option>
+                            <option value="landscape">Landscape</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="image-fit">Image Fit:</label>
+                        <select id="image-fit">
+                            <option value="fit" selected>Fit to Page</option>
+                            <option value="fill">Fill Page (may crop)</option>
+                            <option value="original">Original Size</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Status Messages -->
+                <div id="status-message" class="status-message" style="display: none;"></div>
+
+                <button id="generate-btn" class="btn-primary">Generate PDF</button>
+            </div>
+
+            <!-- RESULT SECTION: Preview and Download -->
+            <div class="result-section" id="result-section" style="display: none;">
+                <h2>PDF Preview</h2>
+                
+                <!-- PDF Info -->
+                <div class="pdf-info-box">
+                    <div class="info-item">
+                        <span class="info-label">Pages:</span>
+                        <span class="info-value" id="pdf-page-count">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">File Size:</span>
+                        <span class="info-value" id="pdf-file-size">0 KB</span>
+                    </div>
+                </div>
+
+                <!-- PDF Preview (iframe) -->
+                <div class="pdf-preview-container">
+                    <iframe id="pdf-preview-iframe" class="pdf-preview-iframe"></iframe>
+                </div>
+
+                <!-- Download Button -->
+                <a id="download-btn" class="btn-success" download="images.pdf">
+                    ⬇ Download PDF
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jsPDF Library (loaded from CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Our custom JavaScript -->
+    <script src="image-to-pdf.js"></script>
+</body>
+</html>

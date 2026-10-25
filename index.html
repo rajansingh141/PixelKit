@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelKit - Free Online Image Tools</title>
+    <!-- This links our HTML to our CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">PixelKit</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: Main greeting and Search Bar -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Simple, Free Image Tools for Everyone</h1>
+            <p>Compress, convert, resize, and edit your images right in your browser. No sign-up required.</p>
+            
+            <div class="search-container">
+                <input type="text" id="tool-search" placeholder="Search for a tool... (e.g., compress, resize)">
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS SECTION: The 5 Tool Cards -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <h2>Our Tools</h2>
+            <div class="tools-grid" id="tools-grid">
+                
+                <!-- Tool 1 -->
+                <a href="compressor.html" class="tool-card" data-tool="compressor">
+                    <div class="tool-icon">🗜️</div>
+                    <h3>Image Compressor</h3>
+                    <p>Reduce file size without losing quality.</p>
+                </a>
+
+                <!-- Tool 2 -->
+                <a href="image-converter.html" class="tool-card" data-tool="converter">
+                    <div class="tool-icon">🔄</div>
+                    <h3>Image Converter</h3>
+                    <p>Convert between JPG, PNG, WEBP, and more.</p>
+                </a>
+
+                <!-- Tool 3 -->
+                <a href="resizer.html" class="tool-card" data-tool="resizer">
+                    <div class="tool-icon">📐</div>
+                    <h3>Image Resizer</h3>
+                    <p>Change image dimensions for any platform.</p>
+                </a>
+
+                <!-- Tool 4 -->
+                <a href="cropper.html" class="tool-card" data-tool="cropper">
+                    <div class="tool-icon">✂️</div>
+                    <h3>Image Cropper</h3>
+                    <p>Crop and frame your photos perfectly.</p>
+                </a>
+
+                <!-- Tool 5 -->
+                <a href="image-to-pdf.html" class="tool-card" data-tool="pdf">
+                    <div class="tool-icon">📄</div>
+                    <h3>Image to PDF</h3>
+                    <p>Combine multiple images into one PDF.</p>
+                </a>
+
+                <!-- Tool 6 -->
+                <a href="target-compressor.html" class="tool-card" data-tool="target-compressor">
+                    <div class="tool-icon">🎯</div>
+                    <h3>Target Size Compressor</h3>
+                    <p>Compress images to exact KB size for government exams.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER: Links and Copyright -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- This links our HTML to our JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

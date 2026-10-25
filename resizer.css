@@ -1,0 +1,408 @@
+/* =========================================
+   1. GLOBAL STYLES & VARIABLES (Same as homepage)
+   ========================================= */
+
+:root {
+    --primary-purple: #6366f1;
+    --primary-blue: #3b82f6;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+    --border-color: #e5e7eb;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   2. HEADER
+   ========================================= */
+
+.tool-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.tool-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.back-link {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary-purple);
+}
+
+/* =========================================
+   3. MAIN CONTENT
+   ========================================= */
+
+.tool-main {
+    padding: 40px 20px;
+}
+
+.tool-main h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tool-description {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   4. UPLOAD AREA
+   ========================================= */
+
+.upload-area {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    border: 3px dashed var(--border-color);
+    border-radius: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-purple);
+    background-color: #f5f7fa;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.upload-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* =========================================
+   5. EDITOR AREA (Two Columns)
+   ========================================= */
+
+.editor-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.editor-area h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   6. PREVIEW SECTION
+   ========================================= */
+
+.preview-container {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.preview-container img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+}
+
+.file-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.file-info div {
+    margin-bottom: 8px;
+}
+
+.file-info div:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   7. CONTROLS SECTION
+   ========================================= */
+
+.dimension-inputs {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-purple);
+}
+
+/* Aspect Ratio Lock Button */
+.lock-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.lock-btn.locked {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+.lock-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Warning Message */
+.warning-message {
+    padding: 12px 15px;
+    background-color: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #92400e;
+}
+
+/* =========================================
+   8. BUTTONS
+   ========================================= */
+
+.btn-primary, .btn-success {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-success {
+    background-color: #10b981;
+    color: var(--white);
+    margin-top: 20px;
+}
+
+.btn-success:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* =========================================
+   9. RESULT AREA (NEW!)
+   ========================================= */
+
+.result-area {
+    margin-top: 60px;
+}
+
+.result-area h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.comparison-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.comparison-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.comparison-item .preview-container {
+    min-height: 250px;
+}
+
+.comparison-item .file-info {
+    margin-top: 15px;
+}
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
+
+.tool-footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.tool-footer p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   11. MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 768px) {
+    .tool-header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tool-main {
+        padding: 30px 20px;
+    }
+
+    .tool-main h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Stack the two columns on mobile */
+    .editor-area {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .upload-area {
+        padding: 40px 20px;
+    }
+
+    /* Adjust dimension inputs for mobile */
+    .dimension-inputs {
+        flex-wrap: wrap;
+    }
+
+    .input-group {
+        flex: 1 1 calc(50% - 40px);
+    }
+
+    .lock-btn {
+        flex: 0 0 50px;
+    }
+
+    /* Stack comparison grid on mobile */
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}

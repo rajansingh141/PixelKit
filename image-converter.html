@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter - PixelKit</title>
+    <link rel="stylesheet" href="image-converter.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Converter Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Image Converter</h1>
+            <p class="tool-description">Convert your images between JPG, PNG, and WebP formats right in your browser. Your images never leave your computer.</p>
+
+            <!-- UPLOAD AREA: Where users select their image -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select an image</p>
+                    <p class="upload-hint">Supports JPG, PNG, and WebP</p>
+                </div>
+            </div>
+
+            <!-- EDITOR AREA: Hidden until an image is loaded -->
+            <div class="editor-area" id="editor-area" style="display: none;">
+                
+                <!-- LEFT SIDE: Image Preview -->
+                <div class="preview-section">
+                    <h2>Preview</h2>
+                    <div class="preview-container">
+                        <img id="preview-image" alt="Image preview">
+                    </div>
+                    <div class="file-info">
+                        <div>Original format: <strong id="original-format">Unknown</strong></div>
+                        <div>Dimensions: <strong id="original-dimensions">0 × 0 px</strong></div>
+                        <div>File size: <strong id="original-size">0 KB</strong></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Controls -->
+                <div class="controls-section">
+                    <h2>Conversion Settings</h2>
+                    
+                    <div class="control-group">
+                        <label for="format-select">Convert to:</label>
+                        <select id="format-select">
+                            <option value="image/jpeg">JPG</option>
+                            <option value="image/png">PNG</option>
+                            <option value="image/webp">WebP</option>
+                        </select>
+                    </div>
+
+                    <!-- Warning Messages -->
+                    <div id="warning-message" class="warning-message" style="display: none;"></div>
+                    <div id="info-message" class="info-message" style="display: none;"></div>
+
+                    <button id="convert-btn" class="btn-primary">Convert Image</button>
+                </div>
+
+            </div>
+
+            <!-- RESULT AREA: Hidden until conversion is complete -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <h2>Result</h2>
+                <div class="comparison-grid">
+                    
+                    <!-- Original Image -->
+                    <div class="comparison-item">
+                        <h3>Original</h3>
+                        <div class="preview-container">
+                            <img id="result-original-image" alt="Original image">
+                        </div>
+                        <div class="file-info">
+                            <div>Format: <strong id="result-original-format">Unknown</strong></div>
+                            <div>Dimensions: <strong id="result-original-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-original-size">0 KB</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Converted Image -->
+                    <div class="comparison-item">
+                        <h3>Converted</h3>
+                        <div class="preview-container">
+                            <img id="result-converted-image" alt="Converted image">
+                        </div>
+                        <div class="file-info">
+                            <div>Format: <strong id="result-converted-format">Unknown</strong></div>
+                            <div>Dimensions: <strong id="result-converted-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-converted-size">0 KB</strong></div>
+                            <div id="result-status" class="result-status"></div>
+                        </div>
+                        <a id="download-btn" class="btn-success" style="display: none;" download="converted-image.jpg">
+                            ⬇ Download Converted Image
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="image-converter.js"></script>
+</body>
+</html>

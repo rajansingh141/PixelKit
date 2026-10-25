@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Size Image Compressor - Compress to 20KB, 50KB, 100KB for Government Exams | PixelKit</title>
+    <meta name="description" content="Compress images to exact KB size for government exams like SSC, UPSC, IBPS, SBI. Free online tool to compress photo to 20KB, 50KB, 100KB or any custom size.">
+    <link rel="stylesheet" href="target-compressor.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Target Size Compressor Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Target Size Image Compressor</h1>
+            <p class="tool-description">Compress your image to an exact file size in KB. Perfect for government exam applications like SSC, UPSC, IBPS, SBI, and more.</p>
+
+            <!-- GOVERNMENT EXAM REQUIREMENTS SECTION -->
+            <section class="exam-requirements-section">
+                <h2>Government Exam Photo Size Requirements</h2>
+                <p class="requirements-intro">Common photo requirements for Indian government exams. Always verify with the latest official notification before applying.</p>
+                
+                <div class="exam-grid" id="exam-grid">
+                    <!-- Exam requirements will be populated by JavaScript -->
+                </div>
+                
+                <p class="requirements-disclaimer">
+                    ⚠️ Requirements may change by recruitment year. Always check the official notification for the specific exam you are applying to.
+                </p>
+            </section>
+
+            <!-- UPLOAD AREA: Where users select their image -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select an image</p>
+                    <p class="upload-hint">Supports JPG, PNG, and WebP</p>
+                </div>
+            </div>
+
+            <!-- EDITOR AREA: Hidden until an image is loaded -->
+            <div class="editor-area" id="editor-area" style="display: none;">
+                
+                <!-- LEFT SIDE: Image Preview -->
+                <div class="preview-section">
+                    <h2>Preview</h2>
+                    <div class="preview-container">
+                        <img id="preview-image" alt="Image preview">
+                    </div>
+                    <div class="file-info">
+                        <div>Original size: <strong id="original-size">0 KB</strong></div>
+                        <div id="original-dimensions"></div>
+                        <div id="format-note" class="format-note"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Controls -->
+                <div class="controls-section">
+                    <h2>Compression Settings</h2>
+                    
+                    <div class="control-group">
+                        <label for="target-size-input">Target File Size (KB):</label>
+                        <input type="number" id="target-size-input" min="1" max="10000" value="50" placeholder="e.g., 20, 50, 100">
+                        <p class="control-hint">Enter the exact size in KB required by your exam application.</p>
+                    </div>
+
+                    <!-- Status Messages -->
+                    <div id="status-message" class="status-message" style="display: none;"></div>
+
+                    <button id="compress-btn" class="btn-primary">Compress to Target Size</button>
+                </div>
+
+            </div>
+
+            <!-- RESULT AREA: Hidden until compression is complete -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <h2>Result</h2>
+                <div class="comparison-grid">
+                    
+                    <!-- Original Image -->
+                    <div class="comparison-item">
+                        <h3>Original</h3>
+                        <div class="preview-container">
+                            <img id="result-original-image" alt="Original image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-original-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-original-size">0 KB</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Compressed Image -->
+                    <div class="comparison-item">
+                        <h3>Compressed</h3>
+                        <div class="preview-container">
+                            <img id="result-compressed-image" alt="Compressed image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-compressed-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-compressed-size">0 KB</strong></div>
+                            <div>Reduction: <strong id="result-reduction">0%</strong></div>
+                            <div id="result-status" class="result-status"></div>
+                        </div>
+                        <a id="download-btn" class="btn-success" style="display: none;" download="compressed-image.jpg">
+                            ⬇ Download Compressed Image
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SEO CONTENT SECTION -->
+            <section class="seo-content">
+                <h2>How to Compress Image to 20KB, 50KB, or 100KB for Government Exams</h2>
+                <p>Many Indian government exam applications require you to upload a passport-size photograph within a specific file size limit. Common requirements include:</p>
+                <ul>
+                    <li><strong>Compress image to 20 KB</strong> — Required by some state police and recruitment exams</li>
+                    <li><strong>Compress image to 50 KB</strong> — Common for SSC CGL, CHSL, and many banking exams</li>
+                    <li><strong>Compress image under 100 KB</strong> — Required by UPSC and several central government exams</li>
+                </ul>
+                <p>Our free online tool helps you compress your photo to the exact size needed, without losing too much quality. The tool works entirely in your browser — your images are never uploaded to any server.</p>
+                
+                <h3>Signature Image Compressor for Government Exams</h3>
+                <p>In addition to photographs, many applications also require a signature image, typically between 10 KB and 50 KB. You can use the same tool to compress your signature scan to the required size.</p>
+                
+                <h3>Passport Photo Size for Online Forms</h3>
+                <p>Most government exam applications require a recent passport-size photograph with dimensions around 200×230 pixels or 3.5cm×4.5cm. Use our <a href="resizer.html">Image Resizer</a> tool to adjust dimensions before compressing to the required file size.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="target-compressor.js"></script>
+</body>
+</html>

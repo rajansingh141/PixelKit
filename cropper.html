@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropper - PixelKit</title>
+    
+    <!-- Cropper.js CSS (for the crop UI) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+    
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="cropper.css">
+</head>
+<body>
+
+    <!-- HEADER: Logo and Back Link -->
+    <header class="tool-header">
+        <div class="container">
+            <a href="index.html" class="logo">PixelKit</a>
+            <a href="index.html" class="back-link">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: The Cropper Tool -->
+    <main class="tool-main">
+        <div class="container">
+            <h1>Image Cropper</h1>
+            <p class="tool-description">Crop your images to any size or aspect ratio right in your browser. Your images never leave your computer.</p>
+
+            <!-- UPLOAD AREA: Where users select their image -->
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-title">Click to select an image</p>
+                    <p class="upload-hint">Supports JPG, PNG, and WebP</p>
+                </div>
+            </div>
+
+            <!-- EDITOR AREA: Hidden until an image is loaded -->
+            <div class="editor-area" id="editor-area" style="display: none;">
+                
+                <!-- LEFT SIDE: Image Preview with Cropper.js -->
+                <div class="preview-section">
+                    <h2>Crop Area</h2>
+                    <div class="cropper-container">
+                        <img id="cropper-image" alt="Image to crop">
+                    </div>
+                    <div class="file-info">
+                        <div>Original: <strong id="original-dimensions">0 × 0 px</strong></div>
+                        <div id="original-file-size"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Controls -->
+                <div class="controls-section">
+                    <h2>Crop Settings</h2>
+                    
+                    <!-- Aspect Ratio -->
+                    <div class="control-group">
+                        <label>Aspect Ratio:</label>
+                        <div class="button-group">
+                            <button class="ratio-btn active" data-ratio="NaN">Free</button>
+                            <button class="ratio-btn" data-ratio="1">1:1</button>
+                            <button class="ratio-btn" data-ratio="1.3333">4:3</button>
+                            <button class="ratio-btn" data-ratio="1.7778">16:9</button>
+                        </div>
+                    </div>
+
+                    <!-- Transform -->
+                    <div class="control-group">
+                        <label>Transform:</label>
+                        <div class="button-group">
+                            <button id="rotate-left-btn" class="transform-btn" title="Rotate left">↺</button>
+                            <button id="rotate-right-btn" class="transform-btn" title="Rotate right">↻</button>
+                            <button id="flip-h-btn" class="transform-btn" title="Flip horizontal">⇆</button>
+                            <button id="flip-v-btn" class="transform-btn" title="Flip vertical">⇅</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="control-group">
+                        <button id="reset-btn" class="btn-secondary">Reset</button>
+                        <button id="crop-btn" class="btn-primary">Crop Image</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RESULT AREA: Hidden until crop is complete -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <h2>Result</h2>
+                <div class="comparison-grid">
+                    
+                    <!-- Original Image -->
+                    <div class="comparison-item">
+                        <h3>Original</h3>
+                        <div class="preview-container">
+                            <img id="result-original-image" alt="Original image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-original-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-original-size">0 KB</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Cropped Image -->
+                    <div class="comparison-item">
+                        <h3>Cropped</h3>
+                        <div class="preview-container">
+                            <img id="result-cropped-image" alt="Cropped image">
+                        </div>
+                        <div class="file-info">
+                            <div>Dimensions: <strong id="result-cropped-dimensions">0 × 0 px</strong></div>
+                            <div>File size: <strong id="result-cropped-size">0 KB</strong></div>
+                        </div>
+                        <a id="download-btn" class="btn-success" style="display: none;" download="cropped-image.jpg">
+                            ⬇ Download Cropped Image
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="tool-footer">
+        <div class="container">
+            <p>&copy; 2026 PixelKit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cropper.js Library (loaded from CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    
+    <!-- Our custom JavaScript -->
+    <script src="cropper.js"></script>
+</body>
+</html>
